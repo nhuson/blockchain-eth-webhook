@@ -3,7 +3,7 @@ import * as ethService from "../coins/eth/EthService";
 import EthAddressModel from "../models/eth_address";
 import * as configs from "../configs";
 
-export default class EthController extends BaseController {
+class EthController extends BaseController {
   constructor() {
     super();
     this.model = EthAddressModel;
@@ -25,7 +25,10 @@ export default class EthController extends BaseController {
         message: "Create ETH address successfully."
       });
     } catch (err) {
+      console.log(err);
       next(err);
     }
   }
 }
+
+export default EthController;

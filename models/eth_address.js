@@ -18,6 +18,6 @@ const EthAdressSchema = new Schema(
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
 
-const EthAddress = model("latest_block", EthAdressSchema);
+const EthAddress = model("eth_address", EthAdressSchema);
 
 export default EthAddress;

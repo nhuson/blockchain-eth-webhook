@@ -1,29 +1,29 @@
 export default class BaseController {
   constructor() {
-    this.model = "";
+    this.model;
   }
 
-  async create(data) {
+  Afunction() {
+    return "2";
+  }
+
+  create(data) {
     return this.model.create(data);
   }
 
-  async update({ data, option }) {
+  update({ data, option }) {
     return this.model.updateOne(option, data);
   }
 
-  async delete(option) {
+  delete(option) {
     return this.model.remove(option);
   }
 
-  async findAll() {
+  findAll() {
     return this.model.find({});
   }
 
-  async findOne(option) {
+  findOne(option) {
     return this.model.findOne(option);
-  }
-
-  call(object, method) {
-    return object[method];
   }
 }
