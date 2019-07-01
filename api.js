@@ -8,7 +8,6 @@ import errorHandle from "./lib/handlerError";
 import crossOrigin from "./lib/crossOrigin";
 
 /** Connect to mongoo */
-
 mongoose();
 
 /** Create app express */
