@@ -34,7 +34,7 @@ export default class BaseDeposit {
   async getBlockRange(from, to) {
     debug(`Scan ${this.CODE} block from ${from} to ${to}`);
     const all = [];
-    for (let i = from; i < to; i += 1) {
+    for (let i = from; i <= to - 1; i += 1) {
       all.push(this.getBlock(i));
     }
     const blocks = await Promise.all(all);
