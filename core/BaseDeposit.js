@@ -49,16 +49,16 @@ export default class BaseDeposit {
 
   async getLatestBlock() {
     const latestBlockOb = await latestBlock.findOne({ name: this.CODE });
+    const latestBlockNumber = await this.getBlockNumber();
     if (!latestBlockOb) {
       await latestBlock.create({
         name: this.CODE,
         block: configs[this.CODE.toLowerCase()].block_default,
-        latest_block: configs[this.CODE.toLowerCase()].block_default
+        latest_block: latestBlockNumber
       });
     }
 
-    const latestBlockNumber = await this.getBlockNumber();
-    if (latestBlockOb.latest_block != latestBlockNumber) {
+    if (latestBlockOb && latestBlockOb.latest_block != latestBlockNumber) {
       debug(`Update ${this.CODE} latest block ->>>> ${latestBlockNumber}`);
       await latestBlock.findOneAndUpdate(
         { name: this.CODE },
